@@ -9,8 +9,13 @@ const port = 5000;
 app.use(cors());
 
 // Define a route handler for the root path
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
     
+  res.send(req.socket.remoteAddress);
+});
+
+app.post('/ip', (req, res) => {
+  console.log(req.headers['user-agent'])
   res.send(req.socket.remoteAddress);
 });
 
