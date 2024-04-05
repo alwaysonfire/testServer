@@ -4,9 +4,12 @@ const cors = require('cors');
 const path = require('path');
 const hostname = 'localhost';
 const port = 5000;
+const testRouter = require('./testRouter')
 
 // Enable CORS for all routes
 app.use(cors());
+
+app.use('/api/test', testRouter);
 
 const root = path.join(__dirname, './build');
 app.use(express.static(root));
