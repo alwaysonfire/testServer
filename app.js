@@ -4,12 +4,12 @@ const cors = require('cors');
 const path = require('path');
 const hostname = 'localhost';
 const port = 5000;
-const testRouter = require('./testRouter')
+const testRouter = require('./testRouter');
 
 // Enable CORS for all routes
 app.use(cors());
 
-app.use('/api/test', testRouter);
+
 
 const root = path.join(__dirname, './build');
 app.use(express.static(root));
@@ -17,6 +17,8 @@ app.use(express.static(root));
 app.use('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
+
+app.use('/api/test', testRouter);
 
 // Define a route handler for the root path
 app.post('/', (req, res) => {
