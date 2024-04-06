@@ -4,7 +4,7 @@ const express  = require('express');
 const testRouter = express.Router();
 
 
-testRouter.post('/ip', (req, res) => {
+testRouter.post('/zxc', (req, res) => {
     return 'hello world'
 });
 
