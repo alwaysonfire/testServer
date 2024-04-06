@@ -11,12 +11,7 @@ app.use(cors());
 
 
 
-const root = path.join(__dirname, './build');
-app.use(express.static(root));
 
-app.use('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './build', 'index.html'));
-});
 
 app.use('/api/test', testRouter);
 
@@ -29,6 +24,14 @@ app.post('/', (req, res) => {
 app.post('/ip', (req, res) => {
   console.log(req.headers['user-agent'])
   res.send(req.socket.remoteAddress);
+});
+
+
+const root = path.join(__dirname, './build');
+app.use(express.static(root));
+
+app.use('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
 // Start the server
